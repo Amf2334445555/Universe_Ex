@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b1b">
+  <title>Universe Explore | Explore o Cosmos</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://images-assets.nasa.gov">
+  <link rel="preconnect" href="https://api.nasa.gov">
+</head>
+<body>
+  <div class="stars-background"></div>
+
+  <header class="topbar">
+    <a href="#" class="logo" data-page="home">
+      <span class="logo-icon">✦</span> UNIVERSE<span class="neon">EXPLORE</span>
+    </a>
+
+    <button class="menu-toggle" id="menu-toggle"
+      aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+    <nav id="navigation">
+      <button class="nav-link active" data-page="home">Início</button>
+      <button class="nav-link" data-page="planets">Explorar planetas</button>
+      <button class="nav-link" data-page="universe">O Universo</button>
+      <button class="nav-link" data-page="gallery">Galeria NASA</button>
+      <button class="nav-link" data-page="asteroids">Asteroides</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- INÍCIO -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">OBSERVE • DESCUBRA • EXPLORE</p>
+          <h1>O Universo é<br>maior do que <span class="gradient-text">imaginamos.</span></h1>
+          <p class="hero-description">
+            Uma jornada interativa por planetas, estrelas, galáxias
+            e fenômenos cósmicos. Explore o espaço com ciência e curiosidade.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button" data-go="planets">
+              Explorar planetas ↗
+            </button>
+            <button class="secondary-button" data-go="universe">
+              Conhecer o Universo
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div><strong>8</strong><span>Planetas no Sistema Solar</span></div>
+            <div><strong>∞</strong><span>Possibilidades de descoberta</span></div>
+            <div><strong>1</strong><span>Cosmos para explorar</span></div>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Ilustração de um planeta">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="planet-art">
+            <div class="planet-glow"></div>
+          </div>
+          <span class="orbit-dot"></span>
+          <span class="floating-label label-one">COSMOS / 001</span>
+          <span class="floating-label label-two">EXPLORAÇÃO ATIVA</span>
+        </div>
+      </div>
+
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">JANELA PARA O COSMOS</p>
+            <h2>Imagem astronômica do dia</h2>
+          </div>
+          <span class="live-tag"><span></span> NASA APOD</span>
+        </div>
+
+        <article class="apod-card">
+          <div class="apod-image-wrap">
+            <img id="apod-image" src="" alt="Imagem astronômica do dia"
+              loading="lazy">
+            <div id="apod-placeholder" class="image-placeholder">
+              Conectando ao observatório...
+            </div>
+          </div>
+          <div class="apod-info">
+            <p class="eyebrow" id="apod-date">DADOS ASTRONÔMICOS</p>
+            <h3 id="apod-title">Carregando imagem...</h3>
+            <p id="apod-description">
+              Estamos buscando a imagem astronômica do dia.
+            </p>
+            <a id="apod-link" href="https://apod.nasa.gov/apod/astropix.html"
+              target="_blank" rel="noopener noreferrer">Ver fonte da NASA ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">SEU PRÓXIMO DESTINO</p>
+            <h2>Explore diferentes mundos</h2>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <button class="feature-card" data-go="planets">
+            <span class="feature-icon">◉</span>
+            <h3>Planetas</h3>
+            <p>Compare mundos rochosos e gigantes gasosos.</p>
+            <span class="card-arrow">Explorar ↗</span>
+          </button>
+          <button class="feature-card" data-go="universe">
+            <span class="feature-icon">✧</span>
+            <h3>Estrelas e constelações</h3>
+            <p>Conheça as estrelas e os padrões vistos no céu.</p>
+            <span class="card-arrow">Descobrir ↗</span>
+          </button>
+          <button class="feature-card" data-go="gallery">
+            <span class="feature-icon">◎</span>
+            <h3>Galeria espacial</h3>
+            <p>Pesquise fotografias e registros da NASA.</p>
+            <span class="card-arrow">Ver imagens ↗</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA EXCLUSIVA: PLANETAS -->
+    <section id="planets" class="page">
+      <div class="page-banner planet-banner">
+        <p class="eyebrow">SISTEMA SOLAR / EXPLORAÇÃO</p>
+        <h1>Explore os <span class="gradient-text">planetas.</span></h1>
+        <p>Selecione um mundo para descobrir suas características.</p>
+      </div>
+
+      <div class="section-wrap">
+        <div class="planet-layout">
+          <div class="planet-selector" id="planet-selector"
+            aria-label="Selecione um planeta"></div>
+          <article class="planet-detail" id="planet-detail" aria-live="polite">
+            <div class="planet-detail-image">
+              <img id="planet-image" src="" alt="Imagem do planeta">
+              <span class="image-caption">IMAGEM DE REFERÊNCIA</span>
+            </div>
+            <div class="planet-detail-copy">
+              <p class="eyebrow" id="planet-type">PLANETA</p>
+              <h2 id="planet-name">Terra</h2>
+              <p id="planet-description"></p>
+              <div class="planet-facts" id="planet-facts"></div>
+              <a id="planet-source" class="text-link"
+                href="https://science.nasa.gov/solar-system/"
+                target="_blank" rel="noopener noreferrer">
+                Saiba mais na NASA ↗
+              </a>
+            </div>
+          </article>
+        </div>
+        <p class="note">
+          As imagens são fotografias ou registros de referência hospedados pela NASA.
+          A aparência das imagens pode variar conforme a disponibilidade dos servidores.
+        </p>
+      </div>
+    </section>
+
+    <!-- ESTRELAS, CONSTELAÇÕES, BURACOS NEGROS E EXOPLANETAS -->
+    <section id="universe" class="page">
+      <div class="page-banner">
+        <p class="eyebrow">ALÉM DO SISTEMA SOLAR</p>
+        <h1>Os mistérios do <span class="gradient-text">Universo.</span></h1>
+        <p>Conheça alguns dos objetos e fenômenos que moldam o cosmos.</p>
+      </div>
+
+      <div class="section-wrap">
+        <div class="topic-grid">
+          <article class="topic-card">
+            <img
+              src="https://images-assets.nasa.gov/image/PIA16884/PIA16884~orig.jpg"
+              alt="Representação científica de uma estrela"
+              loading="lazy">
+            <div class="topic-copy">
+              <span class="topic-number">01 / ESTRELAS</span>
+              <h2>Fábricas de luz</h2>
+              <p>
+                Estrelas são grandes esferas de plasma mantidas pela gravidade.
+                Em seus núcleos, a fusão nuclear libera energia. Sua massa influencia
+                a temperatura, a cor e a maneira como evoluem.
+              </p>
+              <p class="fact-line">Exemplo: o Sol é a estrela mais próxima da Terra.</p>
+            </div>
+          </article>
+
+          <article class="topic-card">
+            <img
+              src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001616/GSFC_20171208_Archive_e001616~orig.jpg"
+              alt="Fotografia astronômica do céu estrelado"
+              loading="lazy">
+            <div class="topic-copy">
+              <span class="topic-number">02 / CONSTELAÇÕES</span>
+              <h2>Mapas no céu</h2>
+              <p>
+                Constelações são regiões definidas do céu. Os padrões aparentes
+                que formam seus desenhos ajudam a localizar objetos celestes,
+                mas as estrelas de um mesmo desenho podem estar a distâncias
+                muito diferentes da Terra.
+              </p>
+              <p class="fact-line">
+                Exemplos: Órion, Cruzeiro do Sul, Escorpião e Ursa Maior.
+              </p>
+            </div>
+          </article>
+
+          <article class="topic-card">
+            <img
+              src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001616/GSFC_20171208_Archive_e001616~orig.jpg"
+              alt="Campo de estrelas no espaço"
+              loading="lazy">
+            <div class="topic-copy">
+              <span class="topic-number">03 / BURACOS NEGROS</span>
+              <h2>Gravidade extrema</h2>
+              <p>
+                Um buraco negro é uma região do espaço-tempo cuja gravidade
+                é tão intensa que, além do horizonte de eventos, nem mesmo a
+                luz consegue escapar. Muitos são detectados pelos efeitos
+                sobre gás, estrelas e outros objetos ao redor.
+              </p>
+              <p class="fact-line">
+                Não são aspiradores cósmicos: a gravidade depende da massa e da distância.
+              </p>
+            </div>
+          </article>
+
+          <article class="topic-card">
+            <img
+              src="https://images-assets.nasa.gov/image/PIA22081/PIA22081~orig.jpg"
+              alt="Ilustração científica de um planeta fora do Sistema Solar"
+              loading="lazy">
+            <div class="topic-copy">
+              <span class="topic-number">04 / EXOPLANETAS</span>
+              <h2>Outros sistemas solares</h2>
+              <p>
+                Exoplanetas orbitam estrelas além do Sol. Há mundos rochosos,
+                gigantes gasosos e planetas que orbitam duas estrelas.
+                Cientistas estudam suas atmosferas para investigar suas condições.
+              </p>
+              <p class="fact-line">
+                Exemplos conhecidos: Proxima Centauri b e os planetas do sistema TRAPPIST-1.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="gallery" class="page">
+      <div class="page-banner">
+        <p class="eyebrow">ARQUIVO DE IMAGENS</p>
+        <h1>Galeria <span class="gradient-text">NASA.</span></h1>
+        <p>Pesquise imagens e registros de missões espaciais.</p>
+      </div>
+
+      <div class="section-wrap">
+        <form id="gallery-form" class="search-form">
+          <input id="gallery-search" type="search"
+            placeholder="Ex.: nebulosa, Marte, galáxia..."
+            aria-label="Pesquisar imagens espaciais" required>
+          <button class="primary-button" type="submit">Pesquisar ↗</button>
+        </form>
+        <p class="note" id="gallery-status" aria-live="polite">
+          Digite um tema para começar sua pesquisa.
+        </p>
+        <div class="gallery-grid" id="gallery-results"></div>
+      </div>
+    </section>
+
+    <!-- ASTEROIDES -->
+    <section id="asteroids" class="page">
+      <div class="page-banner">
+        <p class="eyebrow">NEAR-EARTH OBJECTS</p>
+        <h1>Monitoramento de <span class="gradient-text">asteroides.</span></h1>
+        <p>Consulte objetos próximos da Terra registrados pela NASA.</p>
+      </div>
+
+      <div class="section-wrap">
+        <div class="asteroid-toolbar">
+          <p>Objetos catalogados no período consultado</p>
+          <button id="asteroid-refresh" class="secondary-button">
+            Atualizar dados ↻
+          </button>
+        </div>
+        <p class="note" id="asteroid-status" aria-live="polite">
+          Carregando dados...
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Objeto</th>
+                <th>Diâmetro estimado</th>
+                <th>Velocidade</th>
+                <th>Distância da Terra</th>
+                <th>Potencialmente perigoso?</th>
+              </tr>
+            </thead>
+            <tbody id="asteroid-results"></tbody>
+          </table>
+        </div>
+        <p class="note">
+          “Próximo da Terra” é uma classificação orbital. Isso não significa
+          que o objeto vá colidir com nosso planeta.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#" class="logo" data-page="home">
+      ✦ UNIVERSE<span class="neon">EXPLORE</span>
+    </a>
+    <p>Um projeto educativo para explorar e compreender o cosmos.</p>
+    <p class="footer-small">
+      Dados e imagens: NASA / NASA Image and Video Library. Créditos específicos
+      devem ser conferidos na fonte de cada imagem.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
